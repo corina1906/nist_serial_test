@@ -10,17 +10,22 @@ def second_type_error(p1,n,m):
     beta_p_1=chi2.cdf(x,g_lib)
     return beta_p_1
 def plot_values(n,m):
-    values = np.arange(0.3, 0.7, 0.001)
+    #values = np.arange(0.3, 0.7, 0.001)
+    values = np.arange(0.49, 0.51, 0.001)
     # values = np.arange(0.48, 0.52, 0.001)
     beta_values = []
     for p1 in values:
         beta_values.append(second_type_error(p1, n,m))
     beta_values = np.array(beta_values)
-    plt.plot(values, beta_values)
+    plt.plot(values, beta_values, label=f'm={m}')
     plt.title('Variation of β with respect to H1: p=p1')
+    plt.legend(loc='upper right')
     plt.xlabel('p1')
     plt.ylabel('β(p1)')
-plot_values(150,2)
+plot_values(200,2)
+plot_values(200,3)
+plot_values(200,4)
+# plot_values(150,2)
 # plot_values(5300,8)
 
 def f(x,y):
